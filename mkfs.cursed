@@ -1,0 +1,13 @@
+#!/bin/sh
+
+SIZE_EXT2=128 # sectors, max is 65535
+
+set -euxo pipefail
+EXT2_TMP="$(mktemp)"
+trap "rm $EXT2_TMP" EXIT
+
+truncate -s 4M cursed.img
+truncate -s "$((512*$SIZE_EXT2))" $EXT2_TMP
+mkfs.ext2 $EXT2_TMP
+mkfs.fat -R $SIZE_EXT2 cursed.img
+dd if=$EXT2_TMP of=cursed.img bs=512 skip=1 seek=1 conv=notrunc
