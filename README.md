@@ -23,3 +23,9 @@ It turns out this is surprisingly simple to do: just create a FAT volume with a
 lot of reserved sectors and put the ext2 into the reserved sectors. This works
 because the filesystems choose different places to put their superblock: FAT
 uses the very first sector, while ext2 leaves the first kilobyte unused.
+
+# Can I write to the filesystems?
+
+Yes! When I first decided to do this, I thought writing to the image would
+surely break everything, but as it turns out, the method I've found means
+the filesystems don't conflict.
