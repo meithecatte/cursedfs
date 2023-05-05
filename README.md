@@ -3,7 +3,7 @@
 Make a disk image formatted with both ext2 and FAT, at once.
 
 ```bash
-~/cursedfs% wget 'https://github.com/NieDzejkob/cursedfs/releases/download/v1.0/cursed.img'
+~/cursedfs% wget 'https://github.com/meithecatte/cursedfs/releases/download/v1.0/cursed.img'
 ~/cursedfs% sudo mount -o loop -t ext2 cursed.img mountpoint/
 ~/cursedfs% ls mountpoint/
 mkfs.cursed
